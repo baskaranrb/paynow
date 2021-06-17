@@ -16,7 +16,7 @@ class PaynowTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
 
         // Act
-        Paynow::generate(
+        Paynow::generateDynamic(
             100.00,
             false,
             "O123456",
@@ -37,7 +37,7 @@ class PaynowTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
 
         // Act
-        Paynow::generate(
+        Paynow::generateDynamic(
             0,
             false,
             "O123456",
@@ -58,7 +58,7 @@ class PaynowTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
 
         // Act
-        Paynow::generate(
+        Paynow::generateDynamic(
             -1,
             false,
             "O123456",
@@ -79,7 +79,7 @@ class PaynowTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
 
         // Act
-        Paynow::generate(
+        Paynow::generateDynamic(
             100.00,
             false,
             "O123456",
@@ -100,7 +100,7 @@ class PaynowTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
 
         // Act
-        Paynow::generate(
+        Paynow::generateDynamic(
             100.00,
             false,
             "O123456",
@@ -121,7 +121,7 @@ class PaynowTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
 
         // Act
-        Paynow::generate(
+        Paynow::generateDynamic(
             100.00,
             false,
             "O123456",
@@ -142,7 +142,7 @@ class PaynowTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
 
         // Act
-        Paynow::generate(
+        Paynow::generateDynamic(
             100.00,
             false,
             "O123456",
@@ -160,10 +160,10 @@ class PaynowTest extends TestCase
     public function the_pay_now_service_can_generate_a_paynow_compatible_qr_code_string_using_a_uen_number()
     {
         // Arrange
-        $expected = "00020101021226500009SG.PAYNOW0101202112020111104G030100408202011125204000053037025406100.005802SG5924Clothing Company Pte Ltd6009Singapore62110107O1234566304B015";
+        $expected = "00020101021226500009SG.PAYNOW0101202112020111104G030100408202106175204000053037025406100.005802SG5924Clothing Company Pte Ltd6009Singapore62110107O1234566304E9D2";
 
         // Act
-        $result = Paynow::generate(
+        $result = Paynow::generateDynamic(
             100.00,
             false,
             "O123456",
@@ -184,10 +184,10 @@ class PaynowTest extends TestCase
     public function the_pay_now_service_can_generate_a_paynow_compatible_qr_code_string_using_a_mobile_number()
     {
         // Arrange
-        $expected = "00020101021226470009SG.PAYNOW01010020882049939030100408202011125204000053037025406100.005802SG5924Clothing Company Pte Ltd6009Singapore62110107O123456630417C6";
+        $expected = "00020101021226470009SG.PAYNOW01010020882049939030100408202106175204000053037025406100.005802SG5924Clothing Company Pte Ltd6009Singapore62110107O12345663044E01";
 
         // Act
-        $result = Paynow::generate(
+        $result = Paynow::generateDynamic(
             100.00,
             false,
             "O123456",
